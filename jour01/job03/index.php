@@ -1,11 +1,33 @@
 <?php
-
-//Variables
+// Variables
 $boolean = true;
 $int = 5;
 $str = "chaine de caractères";
 $float = 1.234;
 
+$array = [
+    "boolean" => $boolean,
+    "int" => $int,
+    "string" => $str,
+    "float" => $float
+];
+
+function table($tab) {
+    $html = "";
+
+    foreach ($tab as $name => $value) {
+        $type = gettype($value);
+        $html .= "
+            <tr>
+                <td>$type</td>
+                <td>$name</td>
+                <td>$value</td>
+            </tr>
+        ";
+    }
+
+    return $html;
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +36,29 @@ $float = 1.234;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Runtrack PHP : tableau </title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 40px auto;
+            min-width: 400px;
+            font-family: Arial, sans-serif;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+
+        tr:nth-child(2n) {
+            background-color: #fafafa;
+        }
+    </style>
 </head>
 <body>
     <main>
@@ -24,26 +69,7 @@ $float = 1.234;
                     <td>Nom</td>
                     <td>Valeur</td>
                 </tr>
-                <tr>
-                    <td><?php echo gettype($boolean) ?></td>
-                    <td>Nom</td>
-                    <td><?php echo($boolean) ?></td>
-                </tr>
-                <tr>
-                    <td><?php echo gettype($int) ?></td>
-                    <td>Nom</td>
-                    <td><?php echo($int) ?></td>
-                </tr>
-                <tr>
-                    <td><?php echo gettype($str) ?></td>
-                    <td>Nom</td>
-                    <td><?php echo($str) ?></td>
-                </tr>
-                <tr>
-                    <td><?php echo gettype($float) ?></td>
-                    <td>Nom</td>
-                    <td><?php echo($float) ?></td>
-                </tr>
+                <?php echo table($array); ?>
             </tbody>
         </table>
     </main>
