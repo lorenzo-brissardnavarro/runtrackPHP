@@ -5,12 +5,7 @@ $int = 5;
 $str = "chaine de caractères";
 $float = 1.234;
 
-$array = [
-    "boolean" => $boolean,
-    "int" => $int,
-    "string" => $str,
-    "float" => $float
-];
+$array = ["boolean" => $boolean, "int" => $int, "string" => $str, "float" => $float];
 
 function table($tab) {
     $html = "";
