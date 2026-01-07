@@ -2,8 +2,7 @@
 
 $str = "Tous ces instants seront perdus dans le temps comme les larmes sous la pluie.";
 
-function len($str)
-{
+function len($str){
     $count = 0;
     while (isset($str[$count])) {
         $count++;
@@ -11,8 +10,7 @@ function len($str)
     return $count;
 }
 
-function shorten($str)
-{
+function shorten($str){
     $newStr = "";
     for ($i = 0; $i < len($str); $i += 2) {
         $newStr .= $str[$i];
