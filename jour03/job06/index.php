@@ -1,7 +1,8 @@
 <?php
-header( 'content-type: text/html; charset=utf-8' );
-$str = "Les choses que l'on Possède finissent par nous posséder";
 
+$str = "Les choses que l'on possède finissent par nous posséder";
+
+// Pas de fonction système mais problème d'encodage pour certains caractères
 function reverse_str($str){
     $newStr = "";
     for ($i=0; isset($str[$i]) ; $i++) { 
@@ -10,7 +11,16 @@ function reverse_str($str){
     return $newStr;
 }
 
-echo mb_convert_encoding(reverse_str($str), "UTF-8");
+// Utilisation de la fonction système mb_substr pour résoudre les problèmes d'encodage
+function reverse_str2($str){
+    $newStr = "";
+    for ($i = 0; isset($str[$i]); $i++) {
+        $char = mb_substr($str, $i, 1, 'UTF-8');
+        $newStr = $char . $newStr;
+    }
+
+    return $newStr;
+}
 
 ?>
 
@@ -23,7 +33,7 @@ echo mb_convert_encoding(reverse_str($str), "UTF-8");
 </head>
 <body>
     <main>
-        <h2><?php echo "La phrase '" . $str . "' correspond à '" . reverse_str($str) . "' à l'envers" ?></h2>
+        <h2><?php echo "La phrase '<em>" . $str . "</em>' correspond à '<em>" . reverse_str2($str) . "</em>' à l'envers" ?></h2>
     </main>
 </body>
 </html>
