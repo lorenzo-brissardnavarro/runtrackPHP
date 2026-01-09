@@ -4,9 +4,9 @@ $count = 0;
 if(!empty($_POST)){
     foreach ($_POST as $key => $value) {
         $count++;
-        echo $key . " => " . $value . "<br>";
+        echo  "<p>" . $key . " => " . $value . "</p><br>";
     }
-    echo "Nombre d'arguments : " . $count;
+    echo "<p> Nombre d'arguments : " . $count . "</p>";
 }
 
 ?>

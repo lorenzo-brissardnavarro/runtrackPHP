@@ -4,9 +4,9 @@ $count = 0;
 if(!empty($_GET)){
     foreach ($_GET as $key => $value) {
         $count++;
-        echo $key . " => " . $value . "<br>";
+        echo "<p>" . $key . " => " . $value . "</p><br>";
     }
-    echo "Nombre d'arguments : " . $count;
+    echo "<p> Nombre d'arguments : " . $count . "</p>";
 }
 
 ?>

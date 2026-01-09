@@ -1,10 +1,10 @@
 <?php
 
 if(!empty($_POST)){
-    if($_POST["username"] == "John" && $_POST["password"] == "Rambo"){
-        echo " <p> C'est pas ma guerre ! </p>";
+    if($_POST["number"] % 2 == 0){
+        echo "<p>" . $_POST["number"] . " est nombre pair </p>";
     } else {
-        echo "<p> Votre pire cauchemar ! </p>";
+        echo "<p>" . $_POST["number"] . " est nombre impair </p>";
     }
 }
 
@@ -20,8 +20,7 @@ if(!empty($_POST)){
 <body>
     <main>
         <form action="" method="POST">
-            <input type="username" name="username" placeholder="Nom d'utilisateur">
-            <input type="password" name="password" placeholder="Mot de passe">
+            <input type="number" name="number" placeholder="Entrer un nombre" min="0" max="100">
             <input type="submit" value="Envoyer le formulaire">
         </form>
     </main>
