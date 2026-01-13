@@ -1,15 +1,17 @@
 <?php
 
-session_start();
-
-if(!isset($_SESSION["nbvisites"])){
-    $_SESSION["nbvisites"] = 0;
-} 
 if (isset($_POST["reset"])){
-    $_SESSION["nbvisites"] = 0;
+    setcookie("nbvisites", 0, time() + 3600, "/");
+    $_COOKIE["nbvisites"] = 0;
 }
 
-$_SESSION["nbvisites"]++;
+if(!isset($_COOKIE["nbvisites"])){
+    $nb = 1;
+}  else {
+    $nb = $_COOKIE["nbvisites"] +1;
+}
+
+setcookie("nbvisites", $nb, time() + 3600, "/");
 
 ?>
 
@@ -22,7 +24,7 @@ $_SESSION["nbvisites"]++;
 </head>
 <body>
     <h1>
-        <?php echo "Nombre de visites : " . $_SESSION["nbvisites"] ?>
+        <?php echo "Nombre de visites : " . $nb ?>
     </h1>
     <form action="" method="POST">
         <input type="submit" name="reset" value="Réinitialiser le compteur">
