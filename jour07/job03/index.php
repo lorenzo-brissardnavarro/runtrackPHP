@@ -82,7 +82,7 @@ function affichage(){
         </form>
         <section>
             <p>
-                <?php echo affichage() ?>
+                <?php affichage() ?>
             </p>
         </section>
     </main>

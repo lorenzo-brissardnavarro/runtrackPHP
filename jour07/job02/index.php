@@ -1,17 +1,16 @@
 <?php
 
-if (isset($_POST["reset"])){
+if (isset($_POST["reset"])) {
     setcookie("nbvisites", 0, time() + 3600, "/");
-    $_COOKIE["nbvisites"] = 0;
+    $nb = 0;
+} else {
+    if (!isset($_COOKIE["nbvisites"])) {
+        $nb = 1;
+    } else {
+        $nb = $_COOKIE["nbvisites"] + 1;
+    }
+    setcookie("nbvisites", $nb, time() + 3600, "/");
 }
-
-if(!isset($_COOKIE["nbvisites"])){
-    $nb = 1;
-}  else {
-    $nb = $_COOKIE["nbvisites"] +1;
-}
-
-setcookie("nbvisites", $nb, time() + 3600, "/");
 
 ?>
 
