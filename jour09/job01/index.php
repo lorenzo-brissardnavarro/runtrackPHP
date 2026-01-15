@@ -6,7 +6,7 @@ $sqlQuery = 'SELECT * FROM etudiants';
 $req = $pdo->prepare($sqlQuery);
 $req->execute();
 $req->setFetchMode(PDO::FETCH_ASSOC);
-$recipes = $req->fetchAll();
+$etudiants = $req->fetchAll();
 
 
 
@@ -47,14 +47,14 @@ $recipes = $req->fetchAll();
         <table>
             <thead>
                 <?php
-                foreach (array_keys($recipes[0]) as $champ) {
+                foreach (array_keys($etudiants[0]) as $champ) {
                     echo "<th>" . $champ . "</th>";
                 }
                 ?>
             </thead>
             <tbody>
                 <?php
-                foreach ($recipes as $value) {
+                foreach ($etudiants as $value) {
                     echo "<tr>";
                     foreach ($value as $variable) {
                         echo "<th>" . $variable . "</th>";

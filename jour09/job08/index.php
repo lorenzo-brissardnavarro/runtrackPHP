@@ -2,7 +2,7 @@
 
 $pdo = new PDO("mysql:host=localhost;dbname=jour08;charset=utf8", "root", "");
 
-$sqlQuery = 'SELECT nom, capacite FROM salles';
+$sqlQuery = "SELECT SUM(capacite) AS 'Capacité totale' FROM salles";
 $req = $pdo->prepare($sqlQuery);
 $req->execute();
 $req->setFetchMode(PDO::FETCH_ASSOC);

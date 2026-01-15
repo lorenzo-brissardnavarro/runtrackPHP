@@ -2,7 +2,7 @@
 
 $pdo = new PDO("mysql:host=localhost;dbname=jour08;charset=utf8", "root", "");
 
-$sqlQuery = 'SELECT nom, capacite FROM salles';
+$sqlQuery = "SELECT COUNT(*) AS 'Nombre étudiants' FROM etudiants";
 $req = $pdo->prepare($sqlQuery);
 $req->execute();
 $req->setFetchMode(PDO::FETCH_ASSOC);
